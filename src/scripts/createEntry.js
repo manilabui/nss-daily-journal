@@ -5,6 +5,9 @@ const journalEntry = {
 	mood: ""
 };
 
+// Invoked when submit button is clicked
+const recordEntry = entry => entriesArr.push(journalEntry);
+
 const makeJournalEntryComponent = entryObj => {
     const { date, concept, entry, mood, id } = entryObj;
 
@@ -18,5 +21,4 @@ const makeJournalEntryComponent = entryObj => {
     `;
 };
 
-// Invoked when submit button is clicked
-const recordEntry = entry => entriesArr.push(journalEntry);
+export default makeJournalEntryComponent;

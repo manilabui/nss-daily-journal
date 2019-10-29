@@ -1,5 +1,11 @@
-const renderJournalEntries = entries => {
-	const entryLog = document.querySelector(`.entry-log`);
+import makeJournalEntryComponent from './modifyDOM.js';
 
-	entries.forEach(entry => entryLog.innerHTML += makeJournalEntryComponent(entry));
-}
+const modifyDOM = {
+	renderEntries(entries) {
+		const entryLog = document.querySelector(`.entry-log`);
+		
+		entries.forEach(entry => entryLog.innerHTML += makeJournalEntryComponent(entry));
+	}
+};
+
+export default modifyDOM;
