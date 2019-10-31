@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>Daily Journal</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
 	<link rel="stylesheet" type="text/css" href="styles/journal.css">
 </head>
 <body>
@@ -10,32 +12,29 @@
 	</header>
 	<form>
 		<fieldset>
-			<label for="journalDate">Date</label>
-			<input type="date" name="journalDate">
+			<label for="date">Date</label>
+			<input required class="date" type="date" name="date">
 		</fieldset>
 		<fieldset>
 			<label for="concepts">Concepts</label>
-			<input type="text" name="concepts">
+			<input required class="concepts" type="text" name="concepts" autocomplete="off">
 		</fieldset>
 		<fieldset>
 			<label for="entry">Entry</label>
-			<textarea name="entry">Hello</textarea>
+			<textarea required class="entry" name="entry" placeholder="Tell me bout it"></textarea>
 		</fieldset>
 		<fieldset>
-			<label for="mood">Mood</label>
-			<select class="mood" name="mood">
-			    <option value="">How you feelin', booboo?</option>
-			    <option value="dope">Dope</option>
-			    <option value="chill">Chill</option>
-			    <option value="whelmed">Whelmed</option>
-			</select>
+			<label for="moods">Mood</label>
+			<input required type="text" list="mood" name="mood" placeholder="How you feelin', boo?">
+				<datalist id="mood" name="moods">
+				    <option value="dope">
+				    <option value="chill">
+				    <option value="whelmed">
+				</datalist>
 		</fieldset>
-		<button onclick=recordEntry()>Submit</button>
+		<input class="save-entry" type="submit" name="saveEntry">
 	</form>
 	<article class="entry-log"></article>
-<!-- 	<script type="text/javascript" src="scripts/fetchData.js"></script>
-	<script type="text/javascript" src="scripts/createEntry.js"></script>
-	<script type="text/javascript" src="scripts/modifyDOM.js"></script> -->
-	<script type="module" src="scripts/journal.js"></script>
+	<script type="module" src="scripts/main.js"></script>
 </body>
 </html>
