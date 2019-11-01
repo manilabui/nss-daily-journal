@@ -1,9 +1,19 @@
-import components from './components/entry.js';
+import { createForm } from './components/Form.js';
+import { createEntry } from './components/Entry.js';
+import { recordEntry } from './handlers.js';
 
-export default {
-	renderEntries(entries) {
-		const entryLog = document.querySelector(`.entry-log`);
+export const renderForm = () => {
+	const form = document.querySelector('.form');
 
-		entries.forEach(entry => entryLog.innerHTML += components.createEntry(entry));
-	}
+	form.innerHTML = createForm();
+
+	const saveEntryButton = document.querySelector('.save-entry');
+
+	saveEntryButton.addEventListener('click', recordEntry);
+};
+
+export const renderEntries = entries => {
+	const entryLog = document.querySelector(`.entry-log`);
+
+	entries.forEach(entry => entryLog.innerHTML += createEntry(entry));
 };

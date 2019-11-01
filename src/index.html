@@ -10,31 +10,8 @@
 	<header>
 		<h1>Daily Journal</h1>
 	</header>
-	<form>
-		<fieldset>
-			<label for="date">Date</label>
-			<input required class="date" type="date" name="date">
-		</fieldset>
-		<fieldset>
-			<label for="concepts">Concepts</label>
-			<input required class="concepts" type="text" name="concepts" autocomplete="off">
-		</fieldset>
-		<fieldset>
-			<label for="entry">Entry</label>
-			<textarea required class="entry" name="entry" placeholder="Tell me bout it"></textarea>
-		</fieldset>
-		<fieldset>
-			<label for="moods">Mood</label>
-			<input required type="text" list="mood" name="mood" placeholder="How you feelin', boo?">
-				<datalist id="mood" name="moods">
-				    <option value="dope">
-				    <option value="chill">
-				    <option value="whelmed">
-				</datalist>
-		</fieldset>
-		<input class="save-entry" type="submit" name="saveEntry">
-	</form>
-	<article class="entry-log"></article>
+	<section class="form"></section>
+	<section class="entry-log"></section>
 	<script type="module" src="scripts/main.js"></script>
 </body>
 </html>
