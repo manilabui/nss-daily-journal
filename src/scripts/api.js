@@ -1,9 +1,6 @@
-const url = 'http://localhost:8080/entries';
+const url = 'http://localhost:8081/entries';
 
-export const getEntries = () => {
-	return fetch(url)
-	    .then(response => response.json());
-};
+export const getEntries = () => fetch(url).then(response => response.json());
 
 export const getEntry = id => {
 	return fetch(`url/${id}`);

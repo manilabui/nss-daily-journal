@@ -1,11 +1,11 @@
-import { createForm } from './components/Form.js';
-import { createEntry } from './components/Entry.js';
+import createForm from './components/Form.js';
+import createEntry from './components/Entry.js';
 import { recordEntry } from './handlers.js';
 
 export const renderForm = () => {
-	const form = document.querySelector('.form');
+	const formContainer = document.querySelector('.form');
 
-	form.innerHTML = createForm();
+	formContainer.innerHTML = createForm();
 
 	const saveEntryButton = document.querySelector('.save-entry');
 

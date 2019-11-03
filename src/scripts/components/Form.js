@@ -1,16 +1,17 @@
-export const createForm = () => {
-	const regEx = "^[\\w\\s(){}:;]*$"; // allows alphanumerical characters and {}():;
-	// TO DO: button needs to switch to an update button if editing
+export default () => {
+// TO DO: button needs to switch to an update button if editing
 	const button = `
 		<input 
-			class="save-entry" 
+			class="save-entry"
+			form="form"
 			type="submit" 
 			name="saveEntry" 
-			value="Save">
+			value="Save"
+		/>
 	`;
 
 	return `
-		<form>
+		<form id="form">
 			<fieldset>
 				<label for="date">Date</label>
 				<input 
@@ -23,33 +24,33 @@ export const createForm = () => {
 			<fieldset>
 				<label for="concepts">Concepts</label>
 				<input 
-					class="concepts" 
+					class="input-concepts" 
 					type="text" 
 					name="concepts" 
 					title="Please enter only alphanumerical characters and {}();:." 
 					autocomplete="off" 
-					pattern=${regEx}
+					pattern="^[\\w\\s(){}:;]*$"
 					required 
 				/>
 			</fieldset>
 			<fieldset>
 				<label for="entry">Entry</label>
 				<textarea 
-					class="entry" 
+					class="input-entry" 
 					name="entry" 
 					placeholder="Tell me bout it"
-					required>
-				</textarea>
+					required></textarea
+				>
 			</fieldset>
 			<fieldset>
 				<label for="moods">Mood</label>
-				<select id="mood" name="mood">
-				    <option value="dope">Dope</option>
-				    <option value="chill">Chill</option>
-				    <option value="whelmed">Whelmed</option>
+				<select class="input-mood" name="mood">
+				    <option value="Dope">Dope</option>
+				    <option value="Chill">Chill</option>
+				    <option value="Whelmed">Whelmed</option>
 				</select>
 			</fieldset>
-			${button}
 		</form>
+		${button}
 	`;
 };

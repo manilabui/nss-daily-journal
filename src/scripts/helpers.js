@@ -1,1 +1,0 @@
-export const getValue = selector => document.querySelector(selector).value;

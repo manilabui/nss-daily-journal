@@ -1,1 +1,0 @@
-export const createEntryObj = (date, concept, entry, mood) => { date, concept, entry, mood };
