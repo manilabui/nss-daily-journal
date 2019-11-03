@@ -1,13 +1,8 @@
-import api from './api.js';
-import dom from './dom.js';
-import event from './event.js';
+import { getEntries } from './api.js';
+import { renderEntries, renderForm } from './dom.js';
 
-const saveEntryButton = document.querySelector('.save-entry');
+// render form
+renderForm();
 
-saveEntryButton.addEventListener('click', event.recordEntry);
-
-api.getJournalEntries().then(entries => dom.renderEntries(entries));
-
-saveEntryButton.disabled;
-console.log(saveEntryButton)
-console.log(document.querySelector('.save-entry').reportValidity())
+// render entries
+getEntries().then(entries => renderEntries(entries));

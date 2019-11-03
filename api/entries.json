@@ -2,17 +2,24 @@
   "entries": [
     {
       "id": 1,
-      "date": "10.14.2019",
+      "date": "2019-10-14",
       "concept": "JS Objects",
       "entry": "Whao. I am so amazing.",
       "mood": "Dope"
     },
     {
       "id": 2,
-      "date": "10.15.2019",
+      "date": "2019-10-15",
       "concept": "JS Scope",
       "entry": "This is my time to shine, gurl.",
       "mood": "Dope"
+    },
+    {
+      "date": "2019-11-02",
+      "concept": "hrauio",
+      "entry": "bjeiao",
+      "mood": "Dope",
+      "id": 3
     }
   ]
 }
