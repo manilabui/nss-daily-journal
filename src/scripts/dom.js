@@ -1,19 +1,39 @@
+import createApp from './components/App.js';
 import createForm from './components/Form.js';
+import createFilter from './components/Filter.js';
 import createEntry from './components/Entry.js';
-import { recordEntry } from './handlers.js';
+import { recordEntry, filterEntries } from './handlers.js';
+import { getEntries } from './api.js';
 
-export const renderForm = () => {
-	const formContainer = document.querySelector('.form');
+const container = document.querySelector('.container');
 
-	formContainer.innerHTML = createForm();
-
-	const saveEntryButton = document.querySelector('.save-entry');
-
-	saveEntryButton.addEventListener('click', recordEntry);
-};
+const moods = ['Dope', 'Chill', 'Whelmed'];
 
 export const renderEntries = entries => {
-	const entryLog = document.querySelector(`.entry-log`);
+	const log = document.querySelector(".entries-log");
 
-	entries.forEach(entry => entryLog.innerHTML += createEntry(entry));
+	let entriesStr = '';
+
+	entries.forEach(entry => entriesStr += createEntry(entry));
+
+
+
+	log.innerHTML = entriesStr;
+};
+
+export const renderApp = () => {
+	container.innerHTML = createApp();
+
+	const form = document.querySelector('.form');
+	const filter = document.querySelector(".entries-filter");
+
+	form.innerHTML = createForm(moods);
+	filter.innerHTML = createFilter(moods);
+	getEntries().then(entries => renderEntries(entries));
+
+	const saveEntryButton = document.querySelector('.button-save');
+	const moodFilterButtons = document.querySelectorAll('.moodFilter');
+
+	saveEntryButton.addEventListener('click', recordEntry);
+	moodFilterButtons.forEach(button => button.addEventListener('click', () =>filterEntries(button.value)));
 };

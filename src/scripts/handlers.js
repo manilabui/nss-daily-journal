@@ -14,10 +14,13 @@ export const recordEntry = () => {
 	if (!date || !concepts || !entry) return console.log("Entry is incomplete.");
 
 	const newEntry = createEntryObj(date, concepts, entry, mood);
-
+	// any function that returns a promise, you can chain a .then to, which fetch calls return promises
 	postEntry(newEntry)
 		.then(getEntries())
 		.then(entries => renderEntries(entries));
 };
 
-// any function that returns a promise, you can chain a .then to, which fetch calls return promises
+export const filterEntries = mood => {
+	getEntries()
+		.then(entries => renderEntries(entries.filter(entry => entry.mood === mood)));
+};
