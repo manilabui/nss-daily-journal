@@ -1,14 +1,18 @@
-export default () => {
+export default moods => {
 // TO DO: button needs to switch to an update button if editing
 	const button = `
 		<input 
-			class="save-entry"
+			class="button-save"
 			form="form"
 			type="submit" 
 			name="saveEntry" 
 			value="Save"
 		/>
 	`;
+
+	let moodOptions = '';
+
+	moods.map(mood => moodOptions += `<option value=${mood}>${mood}</option>`);
 
 	return `
 		<form id="form">
@@ -30,7 +34,7 @@ export default () => {
 					title="Please enter only alphanumerical characters and {}();:." 
 					autocomplete="off" 
 					pattern="^[\\w\\s(){}:;]*$"
-					required 
+					required
 				/>
 			</fieldset>
 			<fieldset>
@@ -39,8 +43,8 @@ export default () => {
 					class="input-entry" 
 					name="entry" 
 					placeholder="Tell me bout it"
-					required></textarea
-				>
+					required
+				></textarea>
 			</fieldset>
 			<fieldset>
 				<label for="moods">Mood</label>
