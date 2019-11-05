@@ -1,5 +1,5 @@
-import { getEntries, postEntry, deleteEntry } from './api.js';
-import { renderEntries } from './dom.js';
+import { getEntries, postEntry, getEntry, deleteEntry } from './api.js';
+import { renderEntries, populateForm } from './dom.js';
 
 const getValue = selector => {
 	const input = document.querySelector(selector);
@@ -27,6 +27,11 @@ export const handleSave = () => {
 export const handleFilter = mood => {
 	getEntries()
 		.then(entries => renderEntries(entries.filter(entry => entry.mood === mood)));
+};
+
+export const handleEdit = id => {
+	getEntry(id)
+		.then(entry => populateForm(entry));
 };
 
 export const handleDelete = id => {
