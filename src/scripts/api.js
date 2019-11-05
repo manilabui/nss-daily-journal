@@ -2,9 +2,7 @@ const url = 'http://localhost:8081/entries';
 
 export const getEntries = () => fetch(url).then(response => response.json());
 
-export const getEntry = id => {
-	return fetch(`url/${id}`);
-};
+export const getEntry = id => fetch(`${url}/${id}`).then(response => response.json());
 	
 export const postEntry = entry => {
 	return fetch(url, {
@@ -14,4 +12,11 @@ export const postEntry = entry => {
     	},
     	body: JSON.stringify(entry)
 	});
+};
+
+export const deleteEntry = id => {
+	return fetch(`${url}/${id}`, {
+		method: "DELETE"
+	})
+		.then(response => response.json());
 };
