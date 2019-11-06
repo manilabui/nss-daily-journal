@@ -3,7 +3,7 @@
     {
       "date": "2019-10-14",
       "concept": "ES6 Modules",
-      "entry": "Whao. I am so amazing.",
+      "entry": "Whaooooo. I am so amazing.",
       "mood": "Dope",
       "id": 1
     },
@@ -27,6 +27,13 @@
       "entry": "Zomg. I forgot my lunch at home today. Whyyyyyyyy",
       "mood": "Whelmed",
       "id": 4
+    },
+    {
+      "date": "2019-11-02",
+      "concept": "PUT Method",
+      "entry": "My peoples be hurtin', fam, but I'm feelin' too hot.",
+      "mood": "Chill",
+      "id": 5
     }
   ]
 }

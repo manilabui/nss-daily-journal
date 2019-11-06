@@ -1,27 +1,26 @@
 import createApp from './components/App.js';
 import createForm from './components/Form.js';
 import createFilter from './components/Filter.js';
+import createSearch from './components/Search.js';
 import createEntry from './components/Entry.js';
-import { handleEdit, handleDelete, handleSave, handleFilter } from './handlers.js';
 import { getEntries } from './api.js';
+import { handleEdit, handleDelete, handleSave, handleFilter, handleUpdate } from './handlers.js';
 
 const container = document.querySelector('.container');
-const form = document.querySelector('.form');
-
 const moods = ['Dope', 'Chill', 'Whelmed'];
 
 export const renderApp = () => {
 	container.innerHTML = createApp();
-
 	
+	const form = document.querySelector('.form');
 	const filter = document.querySelector(".entries-filter");
 
 	form.innerHTML = createForm(moods);
-	filter.innerHTML = createFilter(moods);
+	filter.innerHTML = createFilter(moods) + createSearch();
 	getEntries().then(entries => renderEntries(entries));
 
 	const saveEntryButton = document.querySelector('.button-save');
-	const moodFilterButtons = document.querySelectorAll('.moodFilter');
+	const moodFilterButtons = document.querySelectorAll('.button-radio');
 
 	saveEntryButton.addEventListener('click', handleSave);
 	moodFilterButtons.forEach(button => button.addEventListener('click', () => handleFilter(button.value)));
@@ -50,11 +49,16 @@ export const renderEntries = entries => {
 	});
 };
 
-export const populateForm = entry => {
-	const dateInput = document.querySelector('.input-date');
-	const conceptsInput = document.querySelector('.input-concepts');
-	const entryInput = document.querySelector('.input-entry');
-	const moodInput = document.querySelector('.input-mood');
+export const renderUpdateForm = ({ date, concept, entry, mood, id }) => {
+	document.querySelector('.input-date').value = date;
+	document.querySelector('.input-concept').value = concept;
+	document.querySelector('.input-entry').value = entry;
+	document.querySelector('.input-mood').value = mood;
+	document.querySelector('.input-id').value = id;
+	document.querySelector('.button-save').hidden = true;
 
-	
+	const updateButton = document.querySelector('.button-update');
+
+	updateButton.hidden = false;
+	updateButton.addEventListener('click', () => handleUpdate(id));
 };
