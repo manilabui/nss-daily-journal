@@ -1,15 +1,4 @@
 export default moods => {
-// TO DO: button needs to switch to an update button if editing
-	const button = `
-		<input 
-			class="button-save"
-			form="form"
-			type="submit" 
-			name="saveEntry" 
-			value="Save"
-		/>
-	`;
-
 	let moodOptions = '';
 
 	moods.map(mood => moodOptions += `<option value=${mood}>${mood}</option>`);
@@ -26,11 +15,11 @@ export default moods => {
 				/>
 			</fieldset>
 			<fieldset>
-				<label for="concepts">Concepts</label>
+				<label for="concepts">Concept</label>
 				<input 
-					class="input-concepts" 
+					class="input-concept" 
 					type="text" 
-					name="concepts" 
+					name="concept" 
 					title="Please enter only alphanumerical characters and {}();:." 
 					autocomplete="off" 
 					pattern="^[\\w\\s(){}:;]*$"
@@ -48,13 +37,34 @@ export default moods => {
 			</fieldset>
 			<fieldset>
 				<label for="moods">Mood</label>
-				<select class="input-mood" name="mood">
+				<select class="input-mood" name="mood" required>
+					<option value="">How you feelin, booboo?</option>
 				    <option value="Dope">Dope</option>
 				    <option value="Chill">Chill</option>
 				    <option value="Whelmed">Whelmed</option>
 				</select>
 			</fieldset>
+			<input 
+				class="input-id" 
+				type="number" 
+				name="id" 
+				hidden
+			/>
 		</form>
-		${button}
+		<input 
+			class="button-save"
+			form="form"
+			type="submit" 
+			name="saveEntry" 
+			value="Save"
+		/>
+		<input 
+			class="button-update"
+			form="form"
+			type="submit" 
+			name="updateEntry" 
+			value="Update"
+			hidden
+		/>
 	`;
 };

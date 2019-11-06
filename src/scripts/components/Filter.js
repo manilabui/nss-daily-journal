@@ -3,14 +3,16 @@ export default moodsArr => {
 
 	moodsArr.map(mood => {
 		return inputsStr += `
-			<input class="moodFilter" type="radio" name=mood value=${mood}>
-			<label for"${mood}">${mood}</label>
+			<div class="moodFilter">
+				<input class="button-radio" type="radio" name=mood value=${mood}>
+				<label for"${mood}">${mood}</label>
+			</div>
 		`;
 	});
 
     return `
     	<fieldset>
-	    	<legend>Filter by Mood:</legend>
+	    	<legend>Filter by Mood</legend>
 	    	${inputsStr}
 	    </fieldset>
     `;

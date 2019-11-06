@@ -14,6 +14,16 @@ export const postEntry = entry => {
 	});
 };
 
+export const putEntry = (id, entry) => {
+	return fetch(`${url}/${id}`, {
+    	method: "PUT",
+    	headers: {
+        	"Content-Type": "application/json"
+    	},
+    	body: JSON.stringify(entry)
+	});
+};
+
 export const deleteEntry = id => {
 	return fetch(`${url}/${id}`, {
 		method: "DELETE"
